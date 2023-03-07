@@ -11,13 +11,15 @@ package ru.mikheev.kirill.jlessons.march05.lesson.complex;
 public interface Number {
 
     /**
-
+     *
+     *
      * @param anotherNumber
      * @return
      */
     Number add(Number anotherNumber);
 
     /**
+     *
      * @param anotherNumber
      * @return
      * @throws

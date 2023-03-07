@@ -1,6 +1,8 @@
 package ru.mikheev.kirill.jlessons.march05.lesson.complex;
 
 
+import static java.lang.Math.pow;
+
 public class ComplexNumber implements Number {
 
     private final double re, im;
@@ -62,12 +64,40 @@ public class ComplexNumber implements Number {
 
     @Override
     public Number multiply(Number anotherNumber) {
-        return null;
+        if(anotherNumber instanceof ComplexNumber){
+            return multiply((ComplexNumber) anotherNumber);
+        }
+        return new ComplexNumber(
+                re * anotherNumber.getNumberModulo(),
+                im * anotherNumber.getNumberModulo()
+        );
+    }
+
+    public ComplexNumber multiply(ComplexNumber anotherNumber) {
+        return new ComplexNumber(
+                re * anotherNumber.re - im * anotherNumber.im,
+                re * anotherNumber.im + im * anotherNumber.re
+        );
     }
 
     @Override
     public Number div(Number anotherNumber) {
-        return null;
+        if (anotherNumber instanceof ComplexNumber){
+            return div((ComplexNumber) anotherNumber);
+        }
+        return new ComplexNumber(
+                re/anotherNumber.getNumberModulo(),
+                im/anotherNumber.getNumberModulo()
+        );
+    }
+
+    public ComplexNumber div(ComplexNumber anotherNumber){
+        ComplexNumber tmp = new ComplexNumber(re, im);
+        tmp = tmp.multiply(conjugate(anotherNumber));
+        return new ComplexNumber(
+                tmp.re / anotherNumber.multiplicationByInverse(),
+                tmp.im / anotherNumber.multiplicationByInverse()
+        );
     }
 
     @Override
@@ -79,6 +109,10 @@ public class ComplexNumber implements Number {
 
     private ComplexNumber conjugate(ComplexNumber complexNumber) {
         return new ComplexNumber(complexNumber.re, -1 * complexNumber.im);
+    }
+
+    private double multiplicationByInverse(){
+        return pow(re, 2) + im * im;
     }
 
     @Override
