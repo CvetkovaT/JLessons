@@ -17,6 +17,23 @@ public class ShapeFactory {
         );
     }
 
+    public static Triangle createTriangle(double firstPointX, double firstPointY,
+                                          double secondPointX, double secondPointY,
+                                          double thirdPointX, double thirdPointY){
+        return new Triangle(
+                new Point(firstPointX, firstPointY),
+                new Point(secondPointX, secondPointY),
+                new Point(thirdPointX,thirdPointY)
+        );
+    }
+
+    public static Circle createCircle(double centreX, double centreY, double radius) {
+        return new Circle(
+                new Point(centreX, centreY),
+                radius
+        );
+    }
+
 //    public static Shape createShape(ShapeType shapeType, double[] params) {
 //        switch (shapeType) {
 //            case RECTANGLE: {
