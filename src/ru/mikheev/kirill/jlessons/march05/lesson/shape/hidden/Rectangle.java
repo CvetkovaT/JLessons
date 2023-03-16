@@ -34,5 +34,4 @@ public class Rectangle extends Shape {
     //    checkParams();
         return 4;
     }
-
 }
