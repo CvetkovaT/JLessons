@@ -6,6 +6,8 @@ public interface CustomList {
 
     void add(int index, String elem);
 
+    void showList();
+
     String get(int index);
 
     int size();

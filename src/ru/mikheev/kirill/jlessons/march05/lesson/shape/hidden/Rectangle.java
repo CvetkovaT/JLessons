@@ -19,19 +19,16 @@ public class Rectangle extends Shape {
 
     @Override
     public double getArea() {
-     //   checkParams();
         return (rightDownCorner.getX() - leftUpCorner.getX()) * (rightDownCorner.getY() - leftUpCorner.getY());
     }
 
     @Override
     public double getPerimeter() {
-   //     checkParams();
         return 2 * (rightDownCorner.getX() - leftUpCorner.getX() + rightDownCorner.getY() - leftUpCorner.getY());
     }
 
     @Override
     public double getAngleCount() {
-    //    checkParams();
         return 4;
     }
 }

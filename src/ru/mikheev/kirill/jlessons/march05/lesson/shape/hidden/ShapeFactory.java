@@ -10,10 +10,10 @@ public class ShapeFactory {
     }
 
 
-    public static Rectangle createSquare(double leftUpX, double leftUpY, double lineLength) {
-        return new Rectangle(
+    public static Square createSquare(double leftUpX, double leftUpY, double lineLength) {
+        return new Square(
                 new Point(leftUpX, leftUpY),
-                new Point(leftUpX + lineLength, leftUpY + lineLength)
+                lineLength
         );
     }
 
